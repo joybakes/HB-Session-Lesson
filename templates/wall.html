@@ -1,0 +1,24 @@
+{% extends 'master.html' %}
+{% block body %}
+{% if logged_in==True %}
+<div class="makepost">
+<form class="postform" method="POST">
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit">
+</form>    
+<div>    
+{% endif %}
+{% if posts %}
+{% for post in posts%}
+    <div class="post">
+        {{ post[2] }}
+        <br />
+        Posted by: {{ post[0] }} at {{ post[1] }}
+        
+    </div>
+{% endfor %}
+{% else %}
+<div class="noposts">
+{{ message }}
+</div>
+{% endif %}
+{% endblock %}
